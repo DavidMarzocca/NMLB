@@ -1,2 +1,59 @@
 # NMLB
-An DIY lost-model alarm for RC drones and airplanes
+No Model Left Behing
+An DIY battery-powered lost-model alarm for RC drones and airplanes
+
+It is based on the Attiny85 chip, which can be programmed via Arduino IDE.
+
+The project was inspired by the HellGate buzzer (http://buzzer.hellgatefpv.com/), which I suggest to buy if this DIY project seems too difficult.
+
+——————————————————————————
+Usage
+
+It connects to the RC model via a +5V and a GND wire. Optionally, it can be connected to the BUZZER- pad of a flight controller, which allows to use it as a normal buzzer.
+
+It has a general on-off switch, as well as a sleep mode with very low power consumption (~3uA). It also charges the battery when connected to ab external +5V. This is achieved via the TP4056 chip. 
+
+When the buzzer is turned on, it makes 1, 2, or 3 long beeps if the battery voltage is below 4.0, 3.8, or 3.5V, respectively. It then beeps and blinks twice to confirm start.
+
+— IDLE mode. When the buzzer is on but the RC model has no power, the buzzer blinks the LED once every 3 seconds. After one minute it goes into sleep mode.
+
+— SLEEP mode. In this mode the buzzer consumes only ~3uA, allowing it to stay active for several months with the 70mAh lipo battery. Every 4 seconds it checks the status and then goes back to sleep.
+
+— FLY mode. When the RC model is turned on, the buzzer makes a (long)-(short)-(long) beep and, after 5 seconds,  it arms the lost-model alarm function. In this mode it blinks the LED twice every 3 seconds.
+
+— ALARM mode. When power is lost (after it was on for more than 5 seconds), the buzzer starts waiting for one minute. In this time it blinks the LED four times every 3 seconds. After the minute is passed, it beeps a SOS (_ _ _   . . .   _ _ _) every 5 seconds until the internal battery is drained, or the model is found.
+
+— In order to deactivate the alarm, or the wait period, one can either briefly reconnect power to the RC model (for less than 5 seconds), or simply turn the buzzer off via the switch.
+
+——————————————————————————
+Firmware
+
+The program to be compiled and written onto the attiny85 is ‘NMLB_V.1.0.ino’.
+I used Arduino IDE and an Arduino UNO with a self-made programming board to install it.
+
+——————————————————————————
+Build
+
+The schematic describes the connections and the components required to build the buzzer.
+This can be done in any way you wish: perf-board, self-printed PCB, or by ordering the PCB via a manifacturer using the gerber files attached to the project.
+
+The latter uses SMD components in the 1206 package, to make it easier to solder by hand. It is possible also to use smaller packages (I had 0603 resistors available and used those).
+
+
+The components are:
+
+Buzzer part:
+- Attiny85 in the SOIC package (ATTINY85-20SU or ATTINY85-20SH)
+- Active Buzzer 5V. For the PCB I used the SMD active patch buzzer 9.5mm * 9.5mm * 5mm SMD one (https://tinyurl.com/ydh3g4ac)
+- C1: 1uF capacitor
+- R1: 330 O resistor
+- R2: 22 kO resistor
+- R3: 10 kO resistor
+- R4: 50 kO - 100 kOhm resistor
+- For the PCB the switch is the MSK-01A (https://tinyurl.com/y9ptwtey).
+- I used 70mAh 1s lipo batteries (https://tinyurl.com/y8frzauv). Any other similar size will be OK.
+
+Charging part:
+- TP4056 IC (https://tinyurl.com/ya2jh52k)
+- RPROG: 20 kO - 33 kO resistor
+
