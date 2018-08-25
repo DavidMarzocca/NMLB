@@ -1,2 +1,2 @@
 # NMLB
-An open-source lost-model alarm for RC drones and airplanes
+An DIY lost-model alarm for RC drones and airplanes
