@@ -1,17 +1,17 @@
 # NMLB
-No Model Left Behing
-An DIY battery-powered lost-model alarm for RC drones and airplanes
+*No Model Left Behind*
 
-It is based on the Attiny85 chip, which can be programmed via Arduino IDE.
+A DIY battery-powered lost-model alarm for RC drones and airplanes, based on the Attiny85 chip.
 
 The project was inspired by the HellGate buzzer (http://buzzer.hellgatefpv.com/), which I suggest to buy if this DIY project seems too difficult.
 
 Usage
 --------------
 
-It connects to the RC model via a +5V and a GND wire. Optionally, it can be connected to the BUZZER- pad of a flight controller, which allows to use it as a normal buzzer.
+It connects to the RC model via a +5V and a GND wire.
+Optionally, it can be connected also to the BUZZER- pad of a flight controller, which allows to use it as a normal buzzer.
 
-It has a general on-off switch, as well as a sleep mode with very low power consumption (~3uA). It also charges the battery when connected to ab external +5V. This is achieved via the TP4056 chip. 
+It has a general on-off switch, as well as a sleep mode with very low power consumption (~3uA). It also charges the battery when connected to an external +5V. This is achieved via the TP4056 chip. 
 
 When the buzzer is turned on, it makes 1, 2, or 3 long beeps if the battery voltage is below 4.0, 3.8, or 3.5V, respectively. It then beeps and blinks twice to confirm start.
 
@@ -31,8 +31,9 @@ Firmware
 --------------
 
 The program to be compiled and written onto the attiny85 is ‘NMLB_V.1.0.ino’.
-I used Arduino IDE and an Arduino UNO with a self-made programming board to install it.
-
+I use Arduino IDE and an Arduino UNO with a self-made programming board to install it.
+See https://www.instructables.com/id/Program-an-ATtiny-with-Arduino/ for instructions to build one.
+The Attiny in SOIC format can be programmed using a 'SOIC8 SOP8 to DIP8 200mil Wide-body Seat Programmer Adapter Socket' (https://tinyurl.com/y9wba9u6) or a 'SOIC8 SOP8 Test Clip in-circuit programmer' (https://tinyurl.com/yawm7v8t).
 
 Build
 --------------
