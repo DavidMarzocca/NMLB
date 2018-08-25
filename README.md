@@ -3,6 +3,8 @@
 
 A DIY battery-powered lost-model alarm for RC drones and airplanes, based on the Attiny85 chip.
 
+![alt tag](https://github.com/DavidMarzocca/NMLB/blob/master/NMLB_finished.jpg)
+
 The project was inspired by the HellGate buzzer (http://buzzer.hellgatefpv.com/), which I suggest to buy if this DIY project seems too difficult.
 
 Usage
