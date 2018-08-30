@@ -7,6 +7,8 @@ A DIY battery-powered lost-model alarm for RC drones and airplanes, based on the
 
 The project was inspired by the HellGate buzzer (http://buzzer.hellgatefpv.com/), which I suggest to buy if this DIY project seems too difficult.
 
+A simpler version of this project can be build with a perf-board using through-hole components, without the lipo-charging function. The schematic can be found here: https://github.com/DavidMarzocca/NMLB/blob/master/Schematic_NMLB_noCH-V.1.0.png .
+
 Usage
 --------------
 
