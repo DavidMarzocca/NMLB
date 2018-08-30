@@ -4,11 +4,11 @@
 A simpler version of this project can be build with a perf-board using through-hole components, without the lipo-charging function since that requires the surface-mounted IC TP4056.
 
 Indeed, my first prototype was done in this way.
-![alt tag](https://github.com/DavidMarzocca/NMLB/blob/master/NMLB_noCH_top.jpg)
-![alt tag](https://github.com/DavidMarzocca/NMLB/blob/master/NMLB_noCH_bottom.jpg)
+![alt tag](../master/NMLB_noCH_top.jpg)
+![alt tag](../master/NMLB_noCH_bottom.jpg)
 
 The schematic is also simpler:
-![alt tag](https://github.com/DavidMarzocca/NMLB/blob/master/Schematic_NMLB_noCH-V.1.0.png)
+![alt tag](../master/Schematic_NMLB_noCH-V.1.0.png)
 
 
 The components are:
