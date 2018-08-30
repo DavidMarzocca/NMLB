@@ -15,6 +15,9 @@ Usage
 It connects to the RC model via a +5V and a GND wire.
 Optionally, it can be connected also to the BUZZER- pad of a flight controller, which allows to use it as a normal buzzer.
 
+By modifying the `bz_mode` flag in the code to `const int bz_mode = 2;` the buzzer can instead be controlled via a PWM signal (buzzer on if PWM is above 1800) of a traditional receiver.
+
+
 It has a general on-off switch, as well as a sleep mode with very low power consumption (~3μA). It also charges the battery when connected to an external +5V. This is achieved via the TP4056 chip. 
 
 When the buzzer is turned on, it makes 1, 2, or 3 long beeps if the battery voltage is below 4.0, 3.8, or 3.5V, respectively. It then beeps and blinks twice to confirm start.
