@@ -3,11 +3,11 @@
 
 A DIY battery-powered lost-model alarm for RC drones and airplanes, based on the Attiny85 chip.
 
-![alt tag](../blob/master/NMLB_finished.jpg)
+![alt tag](../master/NMLB_finished.jpg)
 
 The project was inspired by the HellGate buzzer (http://buzzer.hellgatefpv.com/), which I suggest to buy if this DIY project seems too difficult.
 
-A simpler version of this project can be build with a perf-board using through-hole components > [Through-hole version](../blob/master/BUILD_noCH.md). Note that in this case the lipo-charging function cannot be done.
+A simpler version of this project can be build with a perf-board using through-hole components > [Through-hole version](../master/BUILD_noCH.md). Note that in this case the lipo-charging function cannot be done.
 
 Usage
 --------------
@@ -15,13 +15,13 @@ Usage
 It connects to the RC model via a +5V and a GND wire.
 Optionally, it can be connected also to the BUZZER- pad of a flight controller, which allows to use it as a normal buzzer.
 
-It has a general on-off switch, as well as a sleep mode with very low power consumption (~3uA). It also charges the battery when connected to an external +5V. This is achieved via the TP4056 chip. 
+It has a general on-off switch, as well as a sleep mode with very low power consumption (~3μA). It also charges the battery when connected to an external +5V. This is achieved via the TP4056 chip. 
 
 When the buzzer is turned on, it makes 1, 2, or 3 long beeps if the battery voltage is below 4.0, 3.8, or 3.5V, respectively. It then beeps and blinks twice to confirm start.
 
 — *IDLE* mode (. 3s). When the buzzer is on but the RC model has no power, the buzzer blinks the LED once every 3 seconds. After one minute it goes into sleep mode.
 
-— *SLEEP* mode. In this mode the buzzer consumes only ~3uA, allowing it to stay active for several months with the 70mAh lipo battery. Every 4 seconds it checks the status and then goes back to sleep.
+— *SLEEP* mode. In this mode the buzzer consumes only ~3μA, allowing it to stay active for several months with the 70mAh lipo battery. Every 4 seconds it checks the status and then goes back to sleep.
 
 — *FLY* mode (.. 3s). When the RC model is turned on, the buzzer makes a (long)-(short)-(long) beep and, after 5 seconds,  it arms the lost-model alarm function. In this mode it blinks the LED twice every 3 seconds.
 
@@ -43,13 +43,13 @@ The Attiny in SOIC format can be programmed using a '[SOIC8 SOP8 to DIP8 200mil 
 Build
 --------------
 
-![alt tag](../blob/master/Schematic_NMLB-V1.0.png)
+![alt tag](../master/Schematic_NMLB-V1.0.png)
 
 The schematic describes the connections and the components required to build the buzzer.
 This can be done in any way you wish: perf-board, self-printed PCB, or by ordering the PCB via a manifacturer using the gerber files attached to the project.
 
-![alt tag](../blob/master/NMLB_PCB_top.png)
-![alt tag](../blob/master/NMLB_PCB_bottom.png)
+![alt tag](../master/NMLB_PCB_top.png)
+![alt tag](../master/NMLB_PCB_bottom.png)
 
 The latter uses SMD components in the 1206 package, to make it easier to solder by hand. It is possible also to use smaller packages (I had 0603 resistors available and used those).
 
@@ -60,14 +60,14 @@ The components are:
 - Attiny85 in the SOIC package (ATTINY85-20SU or ATTINY85-20SH)
 - Active Buzzer 5V. For the PCB I used the SMD active patch buzzer 9.5mm * 9.5mm * 5mm SMD one (https://tinyurl.com/ydh3g4ac)
 - C1: 1uF capacitor
-- R1: 330 Ohm resistor
-- R2: 22 kO resistor
-- R3: 10 kO resistor
-- R4: 50 kO - 100 kOhm resistor
+- R1: 330Ω resistor
+- R2: 22 kΩ resistor
+- R3: 10 kΩ resistor
+- R4: 50 kΩ - 100 kΩ resistor
 - For the PCB the switch is the MSK-01A (https://tinyurl.com/y9ptwtey).
 - I used 70mAh 1s lipo batteries (https://tinyurl.com/y8frzauv). Any other similar size will be OK.
 
 *Charging part:*
 - TP4056 IC (https://tinyurl.com/ya2jh52k)
-- RPROG: 20 kO - 33 kO resistor
+- RPROG: 20 kΩ - 33 kΩ resistor for a charging current below 50mA.
 
