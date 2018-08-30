@@ -25,6 +25,16 @@
 #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit)) // sets a bit to one
 #endif
 
+
+
+// *** Buzzer mode: ***
+//		1 > digital from flight controller; 
+//		2 > PWM signal from a receiver
+// Default is 1
+
+const int bz_mode = 1;
+
+
 // *********** Define I/O Pins **********************
 const int STin = 2;     // Input from +5V Status
 const int BZin = 3;     // Bz- Input from flight controller
@@ -182,11 +192,23 @@ void loop()
     }
 
     // Play the buzzer if a bz signal is sent from betaflight.
-    if(digitalRead(BZin) == HIGH){
-      digitalWrite(BZout, LOW);
+    if(bz_mode == 1){
+	    if(digitalRead(BZin) == HIGH){
+    	  digitalWrite(BZout, LOW);
+	    }
+    	if(digitalRead(BZin) == LOW){
+	      digitalWrite(BZout, HIGH);
+    	}
     }
-    if(digitalRead(BZin) == LOW){
-      digitalWrite(BZout, HIGH);
+    
+    // Play the buzzer if a bz PWM signal is received
+    if(bz_mode == 2){
+      if (pulseIn(BZin, HIGH) > 1800){
+        digitalWrite(BZout, HIGH);
+      }
+      else{
+        digitalWrite(BZout, LOW);
+      }
     }
     
   }
