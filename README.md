@@ -57,20 +57,17 @@ This can be done in any way you wish: perf-board, self-printed PCB, or by orderi
 The latter uses SMD components in the 1206 package, to make it easier to solder by hand. It is possible also to use smaller packages (I had 0603 resistors available and used those).
 
 
-The components are:
+The components are the following (for many I give an approximate range):
 
-*Buzzer part:*
+
 - Attiny85 in the SOIC package (ATTINY85-20SU or ATTINY85-20SH)
+- TP4056 IC (https://tinyurl.com/ya2jh52k)
 - Active Buzzer 5V. For the PCB I used the SMD active patch buzzer 9.5mm * 9.5mm * 5mm SMD one (https://tinyurl.com/ydh3g4ac)
-- C1: 1uF capacitor
-- R1: 330Ω resistor
-- R2: 22 kΩ resistor
+- C1: 1-10 μF capacitor
+- R1: 330-600Ω resistor
+- R2: 20-33 kΩ resistor
 - R3: 10 kΩ resistor
-- R4: 50 kΩ - 100 kΩ resistor
+- R4: 50-100 kΩ resistor
+- RPROG: 20 kΩ - 33 kΩ resistor for a charging current below 50mA.
 - For the PCB the switch is the MSK-01A (https://tinyurl.com/y9ptwtey).
 - I used 70mAh 1s lipo batteries (https://tinyurl.com/y8frzauv). Any other similar size will be OK.
-
-*Charging part:*
-- TP4056 IC (https://tinyurl.com/ya2jh52k)
-- RPROG: 20 kΩ - 33 kΩ resistor for a charging current below 50mA.
-
