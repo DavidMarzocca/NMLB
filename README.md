@@ -12,32 +12,13 @@ A simpler version of this project can be build with a perf-board using through-h
 Usage
 --------------
 
-It connects to the RC model via a +5V and a GND wire.
-Optionally, it can be connected also to the BUZZER- pad of a flight controller, which allows to use it as a normal buzzer.
-
-By modifying the `bz_mode` flag in the code to `const int bz_mode = 2;` the buzzer can instead be controlled via a PWM signal (buzzer on if PWM is above 1800) of a traditional receiver.
-
-
-It has a general on-off switch, as well as a sleep mode with very low power consumption (~3μA). It also charges the battery when connected to an external +5V. This is achieved via the TP4056 chip. 
-
-When the buzzer is turned on, it makes 1, 2, or 3 long beeps if the battery voltage is below 4.0, 3.8, or 3.5V, respectively. It then beeps and blinks twice to confirm start.
-
-— *IDLE* mode (. 3s). When the buzzer is on but the RC model has no power, the buzzer blinks the LED once every 3 seconds. After one minute it goes into sleep mode.
-
-— *SLEEP* mode. In this mode the buzzer consumes only ~3μA, allowing it to stay active for several months with the 70mAh lipo battery. Every 4 seconds it checks the status and then goes back to sleep.
-
-— *FLY* mode (.. 3s). When the RC model is turned on, the buzzer makes a (long)-(short)-(long) beep and, after 5 seconds,  it arms the lost-model alarm function. In this mode it blinks the LED twice every 3 seconds.
-
-— *ALARM* mode (.... 3s). When power is lost (after it was on for more than 5 seconds), the buzzer starts waiting for one minute. In this time it blinks the LED four times every 3 seconds.
-After the minute is passed, it beeps a SOS (_ _ _   . . .   _ _ _) every 5 seconds until the internal battery is drained, or the model is found.
-
-— In order to deactivate the alarm, or the wait period, one can either briefly reconnect power to the RC model (for less than 5 seconds), or simply turn the buzzer off via the switch.
+See the [Instructions](../master/Instructions.pdf) pdf file.
 
 
 Firmware
 --------------
 
-The program to be compiled and written onto the attiny85 is '[NMLB_V.1.0.ino](https://github.com/DavidMarzocca/NMLB/blob/master/NMLB_V.1.0.ino)'.
+The program to be compiled and written onto the attiny85 is '[NMLB_V.1.0.ino](../master/NMLB_V.1.0.ino)'.
 I use Arduino IDE and an Arduino UNO with a self-made programming board to install it.
 See [here](https://www.instructables.com/id/Program-an-ATtiny-with-Arduino/) for instructions to build one.
 
