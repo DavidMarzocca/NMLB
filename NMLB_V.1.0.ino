@@ -69,9 +69,9 @@ void setup()
   set_pins();
 
   // Disable charging the battery
-  // (need to connect CHout pin on the attiny
+  // (need to connect CEout pin on the attiny
   // to the CE pin, #8, on the TP4056)
-  digitalWrite(CHout, LOW);
+  digitalWrite(CEout, LOW);
 
   uint16_t Vcc;
 
@@ -93,7 +93,7 @@ void setup()
   // and start charging the battery
   if(myVcc < 4.0){
     long_beep();
-    digitalWrite(CHout, HIGH);
+    digitalWrite(CEout, HIGH);
   }
   
   // another beep if Vcc < 3.8V
@@ -163,10 +163,10 @@ void loop()
       // if the voltage dropped below 3.9V start charging
       double myVcc = get_voltage_V();
       if(myVcc < 4.0){
-        digitalWrite(CHout, HIGH);
+        digitalWrite(CEout, HIGH);
       }
       else{
-        digitalWrite(CHout, LOW);
+        digitalWrite(CEout, LOW);
       }
     }
 
@@ -324,7 +324,7 @@ void set_pins() {
   
   pinMode(BZout, OUTPUT);
   pinMode(LEDout, OUTPUT);
-  pinMode(CHout, OUTPUT);
+  pinMode(CEout, OUTPUT);
 }
 
 
@@ -333,7 +333,7 @@ void set_pins_as_input() {
   pinMode(STin, INPUT);
   pinMode(BZin, INPUT);
   
-  pinMode(CHout, INPUT);
+  pinMode(CEout, INPUT);
   pinMode(BZout, INPUT);
   pinMode(LEDout, INPUT);
 }
