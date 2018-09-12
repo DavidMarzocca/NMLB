@@ -225,6 +225,8 @@ void loop()
     // If it is the first time in this state
     if(on_lowSig == 0){
       on_lowSig = 1;
+	    
+      digitalWrite(BZout, LOW); // in case power went down while the buzzer was playing
 
       stdby_start_time = current_time;
 
@@ -269,6 +271,8 @@ void loop()
     if(on_lostSig == 0){
       on_lostSig = 1;
       
+      digitalWrite(BZout, LOW); // in case power went down while the buzzer was playing
+	    
       // reset the clock
       wait_start_time = current_time;
 
